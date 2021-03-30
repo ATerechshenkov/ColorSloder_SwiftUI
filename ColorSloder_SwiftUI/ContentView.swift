@@ -22,12 +22,18 @@ struct ContentView: View {
                             red: redSliderValue/255,
                             green: greenSliderValue/255,
                             blue: blueSliderValue/255
+                    ),
+                    borderColor: Color(
+                        red: 1 - redSliderValue/255,
+                        green: 1 - greenSliderValue/255,
+                        blue: 1 - blueSliderValue/255
                     )
                 )
                     .padding(.bottom, 32)
                 
                 // Red
                 ColorSlider(
+                    name: "Red",
                     value: $redSliderValue,
                     gradientStart: Color(
                         red: 0.0,
@@ -44,6 +50,7 @@ struct ContentView: View {
                 
                 // Green
                 ColorSlider(
+                    name: "Green",
                     value: $greenSliderValue,
                     gradientStart: Color(
                         red: redSliderValue/255,
@@ -60,6 +67,7 @@ struct ContentView: View {
                 
                 // Blue
                 ColorSlider(
+                    name: "Blue",
                     value: $blueSliderValue,
                     gradientStart: Color(
                         red: redSliderValue/255,

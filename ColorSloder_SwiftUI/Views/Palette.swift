@@ -9,21 +9,22 @@ import SwiftUI
 
 struct Palette: View {
     var color: Color
+    var borderColor: Color
     
     var body: some View {
         RoundedRectangle(cornerRadius: 10)
             .frame(height: 150)
             .foregroundColor(color)
             .roundedBorderStyle(
-                borderWidth: 4,
+                borderWidth: 3,
                 borderRadius: 10,
-                borderColor: .blue
+                borderColor: borderColor
             )
     }
 }
 
 struct Palette_Previews: PreviewProvider {
     static var previews: some View {
-        Palette(color: .orange)
+        Palette(color: .orange, borderColor: .blue)
     }
 }
