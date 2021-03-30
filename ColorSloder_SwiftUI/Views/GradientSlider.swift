@@ -21,6 +21,7 @@ struct GradientSlider: View {
               )
               .mask(Slider(value: $value, in: 0...255, step: 1))
               .frame(height: 40)
+              Slider(value: $value, in: 0...255, step: 1).opacity(0.05)
         }
     }
 }
