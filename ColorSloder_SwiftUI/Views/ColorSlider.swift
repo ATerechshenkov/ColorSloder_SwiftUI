@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ColorSlider: View {
     @Binding var value: Double
-    var color: Color
+    var gradientStart: Color
+    var gradientEnd: Color
      
     @State private var input = ""
 
@@ -17,8 +18,11 @@ struct ColorSlider: View {
         HStack {
             Text("\(lround(value))")
                 .frame(width: 40, alignment: .trailing)
-            Slider(value: $value, in: 0...255, step: 1)
-                .accentColor(color)
+            GradientSlider(
+                value: $value,
+                gradientStart: gradientStart,
+                gradientEnd: gradientEnd
+            )
             NumberTextField(number: $value, range: 0...255)
                 .roundedBorderStyle()
                 .frame(width:50)
@@ -29,6 +33,6 @@ struct ColorSlider: View {
 
 struct ColorSlider_Previews: PreviewProvider {
     static var previews: some View {
-        ColorSlider(value: .constant(135.0), color: .red)
+        ColorSlider(value: .constant(135.0), gradientStart: .red, gradientEnd: .blue)
     }
 }

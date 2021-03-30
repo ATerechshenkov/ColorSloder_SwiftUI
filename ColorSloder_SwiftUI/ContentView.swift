@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var blueSliderValue = Double.random(in: 0...255)
     
     var body: some View {
-        ZStack {
+        ZStack {            
             Color(.white)
                 .ignoresSafeArea()
             VStack {
@@ -25,11 +25,53 @@ struct ContentView: View {
                     )
                 )
                     .padding(.bottom, 32)
-                ColorSlider(value: $redSliderValue, color: Color.red)
+                
+                // Red
+                ColorSlider(
+                    value: $redSliderValue,
+                    gradientStart: Color(
+                        red: 0.0,
+                        green: greenSliderValue/255,
+                        blue: blueSliderValue/255
+                    ),
+                    gradientEnd: Color(
+                        red: 1.0,
+                        green: greenSliderValue/255,
+                        blue: blueSliderValue/255
+                    )
+                )
                     .padding(.bottom, 16)
-                ColorSlider(value: $greenSliderValue, color: Color.green)
+                
+                // Green
+                ColorSlider(
+                    value: $greenSliderValue,
+                    gradientStart: Color(
+                        red: redSliderValue/255,
+                        green: 0.0,
+                        blue: blueSliderValue/255
+                    ),
+                    gradientEnd: Color(
+                        red: redSliderValue/255,
+                        green: 1.0,
+                        blue: blueSliderValue/255
+                    )
+                )
                     .padding(.bottom, 16)
-                ColorSlider(value: $blueSliderValue, color: Color.blue)
+                
+                // Blue
+                ColorSlider(
+                    value: $blueSliderValue,
+                    gradientStart: Color(
+                        red: redSliderValue/255,
+                        green: greenSliderValue/255,
+                        blue: 0.0
+                    ),
+                    gradientEnd: Color(
+                        red: redSliderValue/255,
+                        green: greenSliderValue/255,
+                        blue: 1.0
+                    )
+                )
                 Spacer()
             }
             .padding()
